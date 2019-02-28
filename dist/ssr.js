@@ -1,42 +1,42 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.install = exports.swiper = exports.Swiper = undefined;
 
-var _swiper = require('swiper/dist/js/swiper.js');
+var _swiper = require("swiper/dist/js/swiper.js");
 
 var _swiper2 = _interopRequireDefault(_swiper);
 
-var _objectAssign = require('object-assign');
+var _objectAssign = require("object-assign");
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Swiper = window.Swiper || _swiper2.default;
+var Swiper = typeof window !== "undefined" && window.Swiper || _swiper2.default;
 
-var DEFAULT_EVENTS = ['beforeDestroy', 'slideChange', 'slideChangeTransitionStart', 'slideChangeTransitionEnd', 'slideNextTransitionStart', 'slideNextTransitionEnd', 'slidePrevTransitionStart', 'slidePrevTransitionEnd', 'transitionStart', 'transitionEnd', 'touchStart', 'touchMove', 'touchMoveOpposite', 'sliderMove', 'touchEnd', 'click', 'tap', 'doubleTap', 'imagesReady', 'progress', 'reachBeginning', 'reachEnd', 'fromEdge', 'setTranslate', 'setTransition', 'resize'];
+var DEFAULT_EVENTS = ["beforeDestroy", "slideChange", "slideChangeTransitionStart", "slideChangeTransitionEnd", "slideNextTransitionStart", "slideNextTransitionEnd", "slidePrevTransitionStart", "slidePrevTransitionEnd", "transitionStart", "transitionEnd", "touchStart", "touchMove", "touchMoveOpposite", "sliderMove", "touchEnd", "click", "tap", "doubleTap", "imagesReady", "progress", "reachBeginning", "reachEnd", "fromEdge", "setTranslate", "setTransition", "resize"];
 
 var swiperDirective = function swiperDirective(globalOptions) {
   var getInstanceName = function getInstanceName(el, binding, vnode) {
     var instanceName = null;
     if (binding.arg) {
       instanceName = binding.arg;
-    } else if (vnode.data.attrs && (vnode.data.attrs.instanceName || vnode.data.attrs['instance-name'])) {
-      instanceName = vnode.data.attrs.instanceName || vnode.data.attrs['instance-name'];
+    } else if (vnode.data.attrs && (vnode.data.attrs.instanceName || vnode.data.attrs["instance-name"])) {
+      instanceName = vnode.data.attrs.instanceName || vnode.data.attrs["instance-name"];
     } else if (el.id) {
       instanceName = el.id;
     }
-    return instanceName || 'swiper';
+    return instanceName || "swiper";
   };
 
   return {
     bind: function bind(el, binding, vnode) {
       var self = vnode.context;
-      if (el.className.indexOf('swiper-container') === -1) {
-        el.className += (el.className ? ' ' : '') + 'swiper-container';
+      if (el.className.indexOf("swiper-container") === -1) {
+        el.className += (el.className ? " " : "") + "swiper-container";
       }
     },
     inserted: function inserted(el, binding, vnode) {
@@ -56,12 +56,12 @@ var swiperDirective = function swiperDirective(globalOptions) {
         DEFAULT_EVENTS.forEach(function (eventName) {
           swiper.on(eventName, function () {
             eventEmit.apply(undefined, [vnode, eventName].concat(Array.prototype.slice.call(arguments)));
-            eventEmit.apply(undefined, [vnode, eventName.replace(/([A-Z])/g, '-$1')].concat(Array.prototype.slice.call(arguments)));
+            eventEmit.apply(undefined, [vnode, eventName.replace(/([A-Z])/g, "-$1")].concat(Array.prototype.slice.call(arguments)));
           });
         });
       }
 
-      eventEmit(vnode, 'ready', swiper);
+      eventEmit(vnode, "ready", swiper);
     },
     componentUpdated: function componentUpdated(el, binding, vnode) {
       var instanceName = getInstanceName(el, binding, vnode);
@@ -89,7 +89,7 @@ var swiper = swiperDirective({});
 var install = function install(Vue) {
   var globalOptions = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-  Vue.directive('swiper', swiperDirective(globalOptions));
+  Vue.directive("swiper", swiperDirective(globalOptions));
 };
 
 var VueAwesomeSwiper = { Swiper: Swiper, swiper: swiper, install: install };

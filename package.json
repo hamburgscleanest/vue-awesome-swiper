@@ -42,11 +42,11 @@
   "scripts": {
     "build:spa": "cross-env NODE_ENV=production webpack --config config/build.conf.js",
     "build:ssr": "babel src/ssr.js --out-file dist/ssr.js",
-    "build": "npm run build:spa && npm run build:ssr",
+    "build": "yarn run build:spa && yarn run build:ssr",
     "unit": "cross-env BABEL_ENV=test NODE_ENV=testing karma start test/unit/karma.conf.js --watch",
     "test": "cross-env BABEL_ENV=test NODE_ENV=testing karma start test/unit/karma.conf.js --single-run",
     "lint": "eslint --ext .js,.vue src test/unit/specs",
-    "finish": "npm run lint && npm test && npm run build",
+    "finish": "yarn run lint && yarn test && yarn run build",
     "publish": "git push && git push --tags && npm publish"
   },
   "dependencies": {
@@ -132,10 +132,5 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
     "webpack-merge": "^2.6.1"
-  },
-  "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
   }
 }
-
