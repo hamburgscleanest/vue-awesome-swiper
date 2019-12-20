@@ -108,7 +108,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^3.0.5",
-    "lolex": "^4.0.1",
+    "lolex": "^5.1.2",
     "mocha": "^6.2.0",
     "opn": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
