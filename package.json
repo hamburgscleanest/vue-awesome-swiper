@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "object-assign": "^4.1.1",
-    "swiper": "^4.0.7"
+    "swiper": "^6.5.1"
   },
   "expDependencies": {
     "node-sass": "^4.7.2",
