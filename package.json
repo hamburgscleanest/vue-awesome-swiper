@@ -109,7 +109,7 @@
     "karma-spec-reporter": "0.0.32",
     "karma-webpack": "^3.0.5",
     "lolex": "^4.0.1",
-    "mocha": "^6.2.0",
+    "mocha": "^9.0.1",
     "opn": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "ora": "^3.4.0",
